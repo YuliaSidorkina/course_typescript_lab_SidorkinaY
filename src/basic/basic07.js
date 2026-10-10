@@ -3,5 +3,14 @@
 */
 
 export function factorial(n){
-  return n;
+  if (n < 0) {
+    throw new Error("Факториал не определён для отрицательных чисел");
+  }
+  let result = 1;
+  let current = 1;
+  while (current <= n) {
+    result *= current;
+    current++;
+  }
+  return result;
 }

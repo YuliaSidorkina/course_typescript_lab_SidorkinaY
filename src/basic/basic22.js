@@ -4,5 +4,11 @@
 */
 
 export function palindrome_check(word) {
-	return true;
+if (typeof word !== 'string') {
+    throw new TypeError('Входной параметр должен быть строкой');
+  }
+  const normalized = word.toLowerCase();
+  const reversed = normalized.split('').reverse().join('');
+  return normalized === reversed;
 }
+

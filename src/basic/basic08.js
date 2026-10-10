@@ -3,6 +3,15 @@
 */
 
 export function sum_digits(num) {
-  return 0;
+if (typeof num !== 'number' || num < 1 || !Number.isInteger(num)) {
+throw new Error("Число должно быть положительным и целым");
+}
+let sum = 0;
+let temp = num;
+while (temp > 0) {
+sum += temp % 10;
+temp = Math.floor(temp / 10);
+}
+return sum;
 }
 

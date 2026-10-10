@@ -3,7 +3,17 @@
 */
 
 export function find_max(arr) {
-    return 0;
+if (arr.length === 0) {
+        return null;}
+let max = arr[0];
+let i = 1;
+while (i < arr.length) {
+if (arr[i] > max) {
+max = arr[i];
+}
+i++;
+}
+return max;
 }
 
 

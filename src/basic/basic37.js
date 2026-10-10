@@ -3,8 +3,17 @@
 */
 
 export function map(arr, f) {
-
-  return arr;
+ if (!Array.isArray(arr)) {
+    throw new TypeError('Первый аргумент должен быть массивом');
+  }
+  if (typeof f !== 'function') {
+    throw new TypeError('Второй аргумент должен быть функцией');
+  }
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+  result.push(f(arr[i], i, arr));
+  }
+  return result;
 }
 
 

@@ -4,8 +4,19 @@
 */
 
 export function filter(arr, f) {
-
-	return arr;
+if (!Array.isArray(arr)) {
+    throw new TypeError('Первый аргумент должен быть массивом');
+  }
+  if (typeof f !== 'function') {
+    throw new TypeError('Второй аргумент должен быть функцией');
+  }
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (f(arr[i], i, arr)) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
 }
 
 

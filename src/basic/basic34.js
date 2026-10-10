@@ -3,8 +3,17 @@
 */
 
 export function isSymmetric(matrix) {
-
-    return true;
+  if (!Array.isArray(matrix)) return false;
+  const n = matrix.length;
+  if (n === 0) return true;
+  for (let i = 0; i < n; i++) {
+    if (!Array.isArray(matrix[i]) || matrix[i].length !== n) return false;
+    for (let j = i + 1; j < n; j++) {
+    if (matrix[i][j] !== matrix[j][i]) return false;
+    }
+  }
+  return true;
 }
+
 
 

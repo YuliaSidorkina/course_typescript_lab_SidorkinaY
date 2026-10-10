@@ -3,5 +3,14 @@
 */
 
 export function rotateArrayLeft(arr) {
-  return arr;
+ if (!Array.isArray(arr)) {
+    throw new TypeError('Входной параметр должен быть массивом');
+  }
+  if (arr.length <= 1) {
+    return arr.slice(); 
+  }
+  const result = arr.slice();       
+  const firstElement = result.shift(); 
+  result.push(firstElement);
+  return result;
 }

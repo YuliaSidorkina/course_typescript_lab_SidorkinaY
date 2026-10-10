@@ -3,7 +3,17 @@
 */
 
 export function sum_positive(arr) {
-	return 0;
+	if (!Array.isArray(arr)) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const num = arr[i];
+    if (typeof num === 'number' && !Number.isNaN(num) && num > 0) {
+      sum += num;
+    }
+  }
+  return sum;
 }
 
 

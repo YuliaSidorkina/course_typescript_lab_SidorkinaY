@@ -3,5 +3,15 @@
 */
 
 export function concatenate_strings(arr) {
-	return "";
+	if (!Array.isArray(arr)) {
+    return '';
+  }
+  let result = '';
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if (typeof element === 'string') {
+      result += element;
+    }
+  }
+  return result;
 }

@@ -3,6 +3,17 @@
 */
 
 export function reverse_list(arr) {
-    return arr;
+if (!Array.isArray(arr)) {
+throw new TypeError('Входной параметр должен быть массивом');
 }
-
+let left = 0;
+let right = arr.length - 1;
+while (left < right) {
+const temp = arr[left];
+arr[left] = arr[right];
+arr[right] = temp;
+left++;
+right--;
+}
+return arr;
+}

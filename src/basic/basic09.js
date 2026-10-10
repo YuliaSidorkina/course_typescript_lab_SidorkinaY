@@ -3,5 +3,19 @@
 */
 
 export function fibonacci(n) {
-  return 0
+if (typeof n !== 'number' || n < 0 || !Number.isInteger(n)) {
+throw new Error("n должно быть неотрицательным целым числом");
+}
+if (n === 0) return 0;
+if (n === 1) return 1;
+let a = 0;
+let b = 1;
+let i = 2;
+while (i <= n) {
+const next = a + b;
+a = b;
+b = next;
+i++;
+}
+return b;
 }
