@@ -6,7 +6,8 @@ export interface Flyable {
   fly(): void;
 }
 
-
 export class Bird implements Flyable {
-
+  fly(): void {
+    console.log("I'm flying!");
+  }
 }

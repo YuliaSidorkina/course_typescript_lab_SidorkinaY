@@ -21,10 +21,19 @@ export interface Person {
 }
 
 export function validatePerson(person: Person): void {
-  // Ваш код здесь (10-12 строк)
-  // Проверить name (не пустой)
-  // Проверить age (>= 0)
-  // Проверить address.street (не пустой)
-  // Проверить address.city (не пустой)
-  // Для ошибок указать путь в path
+  if (!person.name || person.name.trim().length === 0) {
+    throw new NestedValidationError('Name is required', ['name']);
+  }
+  if (person.age < 0) {
+    throw new NestedValidationError('Age must be at least 0', ['age']);
+  }
+
+  if (!person.address.street || person.address.street.trim().length === 0) {
+    throw new NestedValidationError('Street is required', ['address', 'street']);
+  }
+
+  if (!person.address.city || person.address.city.trim().length === 0) {
+    throw new NestedValidationError('City is required', ['address', 'city']);
+  }
 }
+

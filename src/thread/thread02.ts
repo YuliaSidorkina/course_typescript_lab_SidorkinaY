@@ -3,6 +3,11 @@
 */
 
 export function parseJsonSafely(jsonString: string): any | null {
-  // Ваш код здесь (3-5 строк)
-  return JSON.parse(jsonString);
+  try {
+    return JSON.parse(jsonString);
+  } catch (error) {
+    console.error('Ошибка парсинга JSON:', error);
+    return null;
+  }
 }
+

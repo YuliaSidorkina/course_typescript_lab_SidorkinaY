@@ -3,15 +3,20 @@
 */
 
 export class Person {
-    firstName: string;
-    lastName: string;
-    private age: number;
+  private _age: number; 
+  private _surname: string; 
 
-    constructor(firstName: string, lastName: string, age: number) {
-        
-    }
+  constructor(name: string, surname: string, age: number) {
+    this.name = name;
+    this._surname = surname;
+    this._age = age;
+  }
 
-    getFullName(): string {
-        return `${this.firstName} ${this.lastName}`;
-    }
+  getFullName() {
+    return `${this.name} ${this._surname}`;
+  }
+
+  isAdult() {
+    return this._age >= 18;
+  }
 }

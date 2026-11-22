@@ -1,12 +1,11 @@
 /* 
 	В объекте user создать метод copy, который будет возвращать глубокую копию объекта. При передачи аргументов метод должен возвращать копию объекта с новыми значениями свойств. 
 */
-
 export type User = {
   name: string;
   age: number;
   role: string[];
-  copy: (name?: string, age?: number, role?: string[]) => User
+  copy: (name?: string, age?: number, role?: string[]) => User;
 };
 
 export const user: User = {
@@ -14,7 +13,11 @@ export const user: User = {
   age: 30,
   role: ["admin", "user"],
   copy(name?: string, age?: number, role?: string[]): User {
-    return this;
-
+    return {
+      ...this,
+      role: role !== undefined ? [...role] : [...this.role],
+      ...(name !== undefined && { name }),
+      ...(age !== undefined && { age }),
+    };
   },
 };

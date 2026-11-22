@@ -11,7 +11,6 @@ export class Point {
     this.y = y;
   }
 }
-
 type Figure = {
   moveTo: (point: Point) => void;
   getMaxX: () => number;
@@ -22,13 +21,20 @@ export class Circle implements Figure {
   private radius: number;
 
   constructor(x: number, y: number, radius: number) {
+    if (radius <= 0) {
+      throw new Error("Radius must be positive");
+    }
+    this.center = new Point(x, y);
+    this.radius = radius;
   }
-
   moveTo(point: Point): void {
-
+    this.center.x = point.x;
+    this.center.y = point.y;
   }
 
   getMaxX(): number {
-
+    return this.center.x + this.radius;
   }
 }
+
+

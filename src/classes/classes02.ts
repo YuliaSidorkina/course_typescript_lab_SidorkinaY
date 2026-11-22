@@ -3,10 +3,8 @@
 */
 
 export class Product {
-  name: string;
-  price: number;
-
-  constructor(name: string, price: number) {
-        
+  constructor(name, price) {
+    this.name = name;
+    this.price = price < 0 ? 0 : price;
   }
 }

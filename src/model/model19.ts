@@ -4,10 +4,19 @@
 
 export function Timestamped<TBase extends new (...args: any[]) => any>(Base: TBase) {
   return class extends Base {
+    timestamp: Date;
 
+    constructor(...args: any[]) {
+      super(...args);
+      this.timestamp = new Date();
+    }
+    getTimestamp(): string {
+      return this.timestamp.toISOString();
+    }
   };
 }
 
 export class Document {
   content: string = "";
 }
+const TimestampedDocument = Timestamped(Document);

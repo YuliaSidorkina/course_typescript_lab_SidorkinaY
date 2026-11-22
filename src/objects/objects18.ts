@@ -3,8 +3,14 @@
 */
 
 export const user = {
-    profile: { name: 'Alice', age: 30 },
-    uppercaseProfileNames() {
-        return this;
-    }
+  profile: { name: 'Alice', age: 30 },
+  uppercaseProfileNames() {
+    const result = { ...this };
+
+    result.profile = { ...result.profile };
+
+    result.profile.name = result.profile.name.toUpperCase();
+
+    return result;
+  },
 };

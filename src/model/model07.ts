@@ -1,7 +1,6 @@
 /* 
   Реализуйте оба интерфейса в классе Duck. Метод swim должен выводить в консоль "Duck is swimming", а метод dive должен выводить в консоль "Duck is diving".
 */
-
 interface Swimmable {
   swim(): void;
 }
@@ -11,5 +10,11 @@ interface Diveable {
 }
 
 export class Duck implements Swimmable, Diveable {
+  swim(): void {
+    console.log("Duck is swimming");
+  }
 
+  dive(): void {
+    console.log("Duck is diving");
+  }
 }

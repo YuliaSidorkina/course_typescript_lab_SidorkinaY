@@ -8,4 +8,9 @@ export class Vehicle {
   }
 }
 
-export class Car 
+export class Car extends Vehicle {
+  move(): void {
+    console.log("Car is moving");
+  }
+}
+

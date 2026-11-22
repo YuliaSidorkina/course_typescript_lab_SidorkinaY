@@ -7,6 +7,15 @@ export function addToCollection<T, K extends string>(
     collectionName: K,
     element: T
 ): Record<K, T[]> {
-    return obj;
+    const result = { ...obj };
+
+    if (!result[collectionName]) {
+        result[collectionName] = [];
+    }
+
+    result[collectionName] = [...result[collectionName], element];
+
+    return result;
 }
+
 

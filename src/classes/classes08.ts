@@ -3,21 +3,25 @@
 */
 
 export class Animal {
-  
+  static animalCount = 0; // Статическое свойство для подсчёта всех животных
+
   name: string;
   species: string;
+
   constructor(name: string, species: string) {
     this.name = name;
     this.species = species;
-    
+    Animal.animalCount++; // Увеличиваем счётчик при каждом создании экземпляра
   }
+
   greet() {
     console.log(
       `Привет, меня зовут ${this.name}! Я представитель вида ${this.species}.`
     );
   }
-  static getAnimalCount() {
-    
+
+  static getAnimalCount(): number {
+    return Animal.animalCount;
   }
 }
 

@@ -1,7 +1,6 @@
 /* 
 	Примените обе примеси к классу FormData и реализуйте функционал сериализации и валидации создав класс EnhancedFormData
 */
-
 export function Serializable<TBase extends new (...args: any[]) => any>(Base: TBase) {
   return class extends Base {
     serialize(): string {
@@ -18,9 +17,11 @@ export function Validatable<TBase extends new (...args: any[]) => any>(Base: TBa
   };
 }
 
- 
 export class FormData {
-  fields: any = {};
-}
+  fields: Record<string, string> = {};
 
-export const EnhancedFormData 
+  setField(name: string, value: string): void {
+    this.fields[name] = value;
+  }
+}
+export class EnhancedFormData extends Serializable(Validatable(FormData)) {}

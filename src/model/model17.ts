@@ -5,6 +5,7 @@
 export class Rectangle {
   width: number;
   height: number;
+
   constructor(width: number, height: number) {
     this.width = width;
     this.height = height;
@@ -21,9 +22,13 @@ export class Rectangle {
 }
 
 export class Square extends Rectangle {
+  constructor(size: number) {
+    super(size, size);
+  }
+
   override setSize(width: number, height: number): void {
-    // Квадрат должен сохранять равенство сторон
-    
-    super.setSize(width, height);
+    const maxSide = Math.max(width, height);
+    this.width = maxSide;
+    this.height = maxSide;
   }
 }

@@ -5,27 +5,32 @@
 export class Collection<T extends { isGreaterThan(other: T): boolean }> {
     private items: T[] = [];
 
-	
-	constructor(...items: T[]) {
-		this.items.push(...items);
-	}
+    constructor(...items: T[]) {
+        this.items.push(...items);
+    }
 
     public add(item: T): void {
         this.items.push(item);
     }
 
+    // Удаляем по ссылочному равенству (===)
     public remove(item: T): void {
-        const index = this.items.findIndex(i => i.isGreaterThan(item));
+        const index = this.items.findIndex(i => i === item);
         if (index > -1) {
             this.items.splice(index, 1);
         }
     }
 
+    // Проверяем наличие по ссылочному равенству (===)
     public contains(item: T): boolean {
-        return this.items.some(i => i.isGreaterThan(item));
+        return this.items.some(i => i === item);
     }
 
     public getGreatest(): T | undefined {
+        if (this.items.length === 0) {
+            return undefined;
+        }
+
         let greatest = this.items[0];
         for (let i = 1; i < this.items.length; i++) {
             if (this.items[i].isGreaterThan(greatest)) {

@@ -4,6 +4,10 @@
 
 import { fetchUserSettings } from "./promises";
 
-export function getSafeUserSettings(id: number): Promise<{ theme: string }> {
-  // TODO: Добавить обработку ошибок с возвратом значений по умолчанию
+export async function getSafeUserSettings(id: number): Promise<{ theme: string }> {
+  try {
+    return await fetchUserSettings(id);
+  } catch {
+    return { theme: "light" };
+  }
 }

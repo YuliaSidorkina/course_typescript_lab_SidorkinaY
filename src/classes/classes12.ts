@@ -28,7 +28,9 @@ export class Pair<T> {
   }
 
   public swap(): void {
-    
+    const temp = this.first;
+    this.first = this.second;
+    this.second = temp;
   }
 }
 

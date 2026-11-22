@@ -3,11 +3,13 @@
 */
 
 export class Counter {
-    static count = 0;
-    constructor() {
-        Counter.count++;
-    }
-    static getCurrentCount() {
+  static count = 0;
 
-    }
+  constructor() {
+    Counter.count++;
+  }
+
+  static getCurrentCount(): number {
+    return Counter.count;
+  }
 }

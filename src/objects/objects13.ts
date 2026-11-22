@@ -2,13 +2,12 @@
 	Метод greeting объекта user должен возвращать строку "Привет, меня зовут Алексей". Объясните, почему вызов внешней функции выдаёт ошибку, и предложите исправление с использованием стрелочной функции.
 
 */
-
 export const user = {
-    name: 'Алексей',
-    greeting() {
-        const externalFn = function() {
-            console.log(`Привет, меня зовут ${this.name}`);
-        };
-        externalFn();
-    }
+  name: 'Алексей',
+  greeting() {
+    const externalFn = () => {
+      console.log(`Привет, меня зовут ${this.name}`);
+    };
+    externalFn();
+  },
 };
